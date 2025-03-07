@@ -199,7 +199,7 @@ describe("objectBallLab",()=>{
     });
     // doesLongNameStealATon returns returns true if the player with the longest name had the most steals
     it("doesLongNameStealATon returns true if the player with the longest name had the most steals", () => {
-      expect(doesLongNameStealATon(playerWithLongestName())).to.be.false;
+      expect(doesLongNameStealATon(playerWithLongestName())).to.be.true;
     });
   })
 })

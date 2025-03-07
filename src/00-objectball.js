@@ -184,6 +184,7 @@ function playerNumbers(teamName) {
 }
 function playerStats(playerName) {
     const object = gameObject();
+    // console.log('merged players',Object.assign({},gameObject().home.players,gameObject().away.players))
     let playerStatusObj = null;
     if(object["home"]["players"][playerName] !== undefined){
         playerStatusObj = object["home"]["players"][playerName]
@@ -288,6 +289,6 @@ function doesLongNameStealATon() {
             }
         }
     }
-    console.log("doesLongNameStealATon", playerWithLongestNameSteals > mostStealsByplayer ? true : false)
-    return playerWithLongestNameSteals > mostStealsByplayer ? true : false;
+    console.log("doesLongNameStealATon", playerWithLongestNameSteals >= mostStealsByplayer ? true : false)
+    return playerWithLongestNameSteals >= mostStealsByplayer ? true : false;
 }
