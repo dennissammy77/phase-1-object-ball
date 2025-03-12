@@ -109,7 +109,7 @@ describe("objectBallLab",()=>{
     // teamNames returns array of team names
     it("teamNames returns array of team names", () => {
       expect(teamNames()).to.be.an("array").to.include('Brooklyn Nets','Charlotte Hornets').to.not.be.empty;
-    });
+    }); 
     // contains playerNumbers func
     it("has a function called playerNumbers", () => {
       expect(playerNumbers).to.exist

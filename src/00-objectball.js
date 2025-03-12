@@ -119,7 +119,7 @@ function gameObject(){
 function homeTeamName() {
     let object = gameObject();
     return object["home"]["teamName"];
-}
+};
 
 function numPointsScored(playerName) {
     const object = gameObject();
@@ -130,7 +130,7 @@ function numPointsScored(playerName) {
     }else if(object["away"]["players"][playerName] !== undefined){
         playerPoints = object["away"]["players"][playerName]["points"]
     }
-    console.log(playerPoints)
+    //console.log(playerPoints)
     return playerPoints
 }
 function shoeSize(playerName) {
@@ -142,7 +142,7 @@ function shoeSize(playerName) {
     }else if(object["away"]["players"][playerName] !== undefined){
         playerShoeSize = object["away"]["players"][playerName]["shoe"]
     }
-    console.log(playerShoeSize)
+    //console.log(playerShoeSize)
     return playerShoeSize;
 }
 function teamColors(teamName) {
@@ -154,17 +154,17 @@ function teamColors(teamName) {
     }else if(object["away"]["teamName"] === teamName){
         teamJerseyColors = object["away"]["colors"]
     }
-    console.log(teamJerseyColors)
+    //console.log(teamJerseyColors)
     return teamJerseyColors;
 }
 function teamNames() {
     const object = gameObject();
     let teamNamesArr = [];
     for (team in object){
-        console.log(object[team]["teamName"])
+        //console.log(object[team]["teamName"])
         teamNamesArr.push(object[team]["teamName"])
     }
-    console.log(teamNamesArr)
+    //console.log(teamNamesArr)
     return teamNamesArr;
 }
 function playerNumbers(teamName) {
@@ -179,19 +179,19 @@ function playerNumbers(teamName) {
             playerJerseyNumbers.push(object["away"]["players"][player]["number"])
         }
     }
-    console.log(playerJerseyNumbers)
+    //console.log(playerJerseyNumbers)
     return playerJerseyNumbers;
 }
 function playerStats(playerName) {
     const object = gameObject();
-    // console.log('merged players',Object.assign({},gameObject().home.players,gameObject().away.players))
+    // //console.log('merged players',Object.assign({},gameObject().home.players,gameObject().away.players))
     let playerStatusObj = null;
     if(object["home"]["players"][playerName] !== undefined){
         playerStatusObj = object["home"]["players"][playerName]
     }else if(object["away"]["players"][playerName] !== undefined){
         playerStatusObj = object["away"]["players"][playerName]
     };
-    console.log(playerStatusObj)
+    //console.log(playerStatusObj)
     return playerStatusObj;
 }
 function bigShoeRebounds() {
@@ -208,8 +208,8 @@ function bigShoeRebounds() {
             }
         }
     }
-    console.log("playerWithbiggestShoe",playerWithbiggestShoe["shoe"])
-    console.log("bigShoeRebounds",playerWithbiggestShoe["rebounds"])
+    //console.log("playerWithbiggestShoe",playerWithbiggestShoe["shoe"])
+    //console.log("bigShoeRebounds",playerWithbiggestShoe["rebounds"])
     return playerWithbiggestShoe["rebounds"]
 }
 function mostPointsScored() {
@@ -224,8 +224,8 @@ function mostPointsScored() {
             }
         }
     }
-    console.log("mostPointsScored,",mostPointsScored)
-    console.log("playerWithMostPoints,",playerWithMostPoints)
+    //console.log("mostPointsScored,",mostPointsScored)
+    //console.log("playerWithMostPoints,",playerWithMostPoints)
     return playerWithMostPoints
 }
 function winningTeam() {
@@ -238,18 +238,22 @@ function winningTeam() {
             if(!teamWithMostPoints){
                 teamWithMostPoints = object[team]["teamName"];
             }
-            if(team === "Brooklyn Nets"){
+            if(object[team]["teamName"] === "Brooklyn Nets"){
                 pointsScoredByTeamA += object[team]["players"][player]["points"]
             }
-            if(team === "Charlotte Hornets"){
+            if(object[team]["teamName"] === "Charlotte Hornets"){
                 pointsScoredByTeamB += object[team]["players"][player]["points"]
             }
             if(pointsScoredByTeamA > pointsScoredByTeamB){
-                teamWithMostPoints = object[team]["teamName"];
+                teamWithMostPoints = object["home"]["teamName"];
+            }else{
+                teamWithMostPoints = object["away"]["teamName"];
             }
         }
     }
-    console.log("teamWithMostPoints,",teamWithMostPoints)
+    //console.log("pointsScoredByTeamA,",pointsScoredByTeamA)
+    //console.log("pointsScoredByTeamB,",pointsScoredByTeamB)
+    //console.log("teamWithMostPoints,",teamWithMostPoints)
     return teamWithMostPoints
 }
 function playerWithLongestName() {
@@ -269,8 +273,8 @@ function playerWithLongestName() {
         }
     }
     
-    console.log("nameWithLongestLength,",nameWithLongestLength)
-    console.log("playerNameWithMostLength,",playerNameWithMostLength)
+    //console.log("nameWithLongestLength,",nameWithLongestLength)
+    //console.log("playerNameWithMostLength,",playerNameWithMostLength)
     return playerNameWithMostLength
 }
 function doesLongNameStealATon() {
@@ -289,6 +293,6 @@ function doesLongNameStealATon() {
             }
         }
     }
-    console.log("doesLongNameStealATon", playerWithLongestNameSteals >= mostStealsByplayer ? true : false)
+    //console.log("doesLongNameStealATon", playerWithLongestNameSteals >= mostStealsByplayer ? true : false)
     return playerWithLongestNameSteals >= mostStealsByplayer ? true : false;
 }
